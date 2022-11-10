@@ -1,0 +1,329 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Stochastic Processes for Sequence Analysis},
+  pdfauthor={José María González Romero and Emiliano Navarro Garre},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{\textbf{Stochastic Processes for Sequence Analysis}}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Assignment 2}
+\author{José María González Romero and Emiliano Navarro Garre}
+\date{2022-11-10}
+
+\begin{document}
+\maketitle
+
+\hypertarget{download-zika-virus-nc_012532.1-and-dengue-virus-nc_001477.}{%
+\paragraph{1. Download Zika virus (NC\_012532.1) and Dengue virus
+(NC\_001477).}\label{download-zika-virus-nc_012532.1-and-dengue-virus-nc_001477.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ZIKA}
+\NormalTok{zika\_fasta }\OtherTok{\textless{}{-}}\NormalTok{ rentrez}\SpecialCharTok{::}\FunctionTok{entrez\_fetch}\NormalTok{(}\AttributeTok{db =} \StringTok{"nucleotide"}\NormalTok{,}
+\AttributeTok{id =} \StringTok{"NC\_012532"}\NormalTok{,}
+\AttributeTok{rettype =} \StringTok{"fasta"}\NormalTok{)}
+\FunctionTok{write}\NormalTok{(zika\_fasta,}
+\AttributeTok{file =} \StringTok{"input\_data/zika.fasta"}\NormalTok{)}
+\NormalTok{zika }\OtherTok{\textless{}{-}} \FunctionTok{read.fasta}\NormalTok{(}\StringTok{"input\_data/zika.fasta"}\NormalTok{)}
+\NormalTok{zika }\OtherTok{\textless{}{-}}\NormalTok{ zika[[}\DecValTok{1}\NormalTok{]]}
+
+\CommentTok{\# DENGUE}
+\NormalTok{dengue\_fasta }\OtherTok{\textless{}{-}}\NormalTok{ rentrez}\SpecialCharTok{::}\FunctionTok{entrez\_fetch}\NormalTok{(}\AttributeTok{db =} \StringTok{"nucleotide"}\NormalTok{,}
+\AttributeTok{id =} \StringTok{"NC\_001477"}\NormalTok{,}
+\AttributeTok{rettype =} \StringTok{"fasta"}\NormalTok{)}
+\FunctionTok{write}\NormalTok{(dengue\_fasta,}
+\AttributeTok{file =} \StringTok{"input\_data/dengue.fasta"}\NormalTok{)}
+\NormalTok{dengue }\OtherTok{\textless{}{-}} \FunctionTok{read.fasta}\NormalTok{(}\StringTok{"input\_data/dengue.fasta"}\NormalTok{)}
+\NormalTok{dengue }\OtherTok{\textless{}{-}}\NormalTok{ dengue[[}\DecValTok{1}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{some-genomes-have-long-stretches-of-either-gc-rich-or-at-rich-sequence.-use-a-hmm-with-two-different-states-at-rich-and-gc-rich-to-infer-which-state-of-the-hmm-is-most-likely-to-have-generated-each-nucleotide-position-in-zika-and-dengue-sequences.-in-this-case-we-exactly-know-the-underlying-hmm-model-that-is-for-the-at-rich-state-pa-0.329-pc-0.301-pg-0.159-and-pt-0.211-for-the-gc-rich-state-pa-0.181-pc-0.313-pg-0.307-and-pt-0.199.-moreover-the-probability-of-switching-from-the-at-rich-state-to-the-gc-rich-state-or-conversely-is-0.3.-make-a-plot-for-each-virus-in-order-to-see-the-change-points.-which-of-both-viruses-has-more-change-points}{%
+\paragraph{2. Some genomes have long stretches of either GC-rich or
+AT-rich sequence. Use a HMM with two different states (``AT-rich'' and
+``GC-rich'') to infer which state of the HMM is most likely to have
+generated each nucleotide position in Zika and Dengue sequences. In this
+case we exactly know the underlying HMM model, that is, for the AT-rich
+state, pA= 0.329, pC = 0.301, pG = 0.159, and pT = 0.211; for the
+GC-rich state, pA = 0.181, pC = 0.313, pG = 0.307, and pT = 0.199.
+Moreover, the probability of switching from the AT-rich state to the
+GC-rich state, or conversely, is 0.3. Make a plot for each virus in
+order to see the change points. Which of both viruses has more change
+points?}\label{some-genomes-have-long-stretches-of-either-gc-rich-or-at-rich-sequence.-use-a-hmm-with-two-different-states-at-rich-and-gc-rich-to-infer-which-state-of-the-hmm-is-most-likely-to-have-generated-each-nucleotide-position-in-zika-and-dengue-sequences.-in-this-case-we-exactly-know-the-underlying-hmm-model-that-is-for-the-at-rich-state-pa-0.329-pc-0.301-pg-0.159-and-pt-0.211-for-the-gc-rich-state-pa-0.181-pc-0.313-pg-0.307-and-pt-0.199.-moreover-the-probability-of-switching-from-the-at-rich-state-to-the-gc-rich-state-or-conversely-is-0.3.-make-a-plot-for-each-virus-in-order-to-see-the-change-points.-which-of-both-viruses-has-more-change-points}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hmm}\OtherTok{=}\FunctionTok{initHMM}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"AT"}\NormalTok{,}\StringTok{"GC"}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{,}\StringTok{"c"}\NormalTok{,}\StringTok{"g"}\NormalTok{,}\StringTok{"t"}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{,}\FloatTok{0.5}\NormalTok{),}
+\FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(.}\DecValTok{7}\NormalTok{,.}\DecValTok{3}\NormalTok{,.}\DecValTok{3}\NormalTok{,.}\DecValTok{7}\NormalTok{),}\DecValTok{2}\NormalTok{), }\FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(.}\DecValTok{329}\NormalTok{,.}\DecValTok{301}\NormalTok{,.}\DecValTok{159}\NormalTok{,.}\DecValTok{211}\NormalTok{,}
+\NormalTok{.}\DecValTok{181}\NormalTok{,.}\DecValTok{313}\NormalTok{,.}\DecValTok{307}\NormalTok{,.}\DecValTok{199}\NormalTok{),}\DecValTok{2}\NormalTok{))}
+
+\NormalTok{hmm}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $States
+## [1] "AT" "GC"
+## 
+## $Symbols
+## [1] "a" "c" "g" "t"
+## 
+## $startProbs
+##  AT  GC 
+## 0.5 0.5 
+## 
+## $transProbs
+##     to
+## from  AT  GC
+##   AT 0.7 0.3
+##   GC 0.3 0.7
+## 
+## $emissionProbs
+##       symbols
+## states     a     c     g     t
+##     AT 0.329 0.159 0.181 0.307
+##     GC 0.301 0.211 0.313 0.199
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pathz}\OtherTok{=}\FunctionTok{viterbi}\NormalTok{(hmm,zika)}
+\NormalTok{x}\OtherTok{=}\FunctionTok{ifelse}\NormalTok{(pathz}\SpecialCharTok{==}\StringTok{"AT"}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\FunctionTok{ts.plot}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{assignment2_files/figure-latex/unnamed-chunk-2-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pathd}\OtherTok{=}\FunctionTok{viterbi}\NormalTok{(hmm,dengue)}
+\NormalTok{x}\OtherTok{=}\FunctionTok{ifelse}\NormalTok{(pathd}\SpecialCharTok{==}\StringTok{"AT"}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\FunctionTok{ts.plot}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{assignment2_files/figure-latex/unnamed-chunk-2-2} \end{center}
+
+Between both viruses, Dengue virus has more changing points (146) from
+AT rich and GC rich, and conversely. Zika virus has 110 changes
+
+\hypertarget{calculate-the-gc-content-and-the-presenceabsence-of-the-trinucleotid-cct-of-chunks-with-length-100-for-both-viruses.}{%
+\paragraph{3. Calculate the GC content and the presence/absence of the
+trinucleotid ``cct'', of chunks with length 100 (for both
+viruses).}\label{calculate-the-gc-content-and-the-presenceabsence-of-the-trinucleotid-cct-of-chunks-with-length-100-for-both-viruses.}}
+
+\hypertarget{is-there-any-significant-relationship-between-the-presence-of-cct-and-the-gc-content-discuss-and-compare-the-results-for-both-viruses.}{%
+\paragraph{4. Is there any significant relationship between the presence
+of ``cct'' and the GC content? Discuss and compare the results for both
+viruses.}\label{is-there-any-significant-relationship-between-the-presence-of-cct-and-the-gc-content-discuss-and-compare-the-results-for-both-viruses.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pcctz }\OtherTok{=}\FunctionTok{ifelse}\NormalTok{(cctz}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{logitz }\OtherTok{=}\FunctionTok{glm}\NormalTok{(pcctz}\SpecialCharTok{\textasciitilde{}}\NormalTok{gcz,}\AttributeTok{family=}\NormalTok{binomial)}
+\FunctionTok{summary}\NormalTok{(logitz)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = pcctz ~ gcz, family = binomial)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.2658   0.4716   0.6171   0.7776   1.1043  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(>|z|)  
+## (Intercept)   -4.682      2.769  -1.691   0.0909 .
+## gcz           11.563      5.539   2.088   0.0368 *
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 118.66  on 106  degrees of freedom
+## Residual deviance: 113.99  on 105  degrees of freedom
+## AIC: 117.99
+## 
+## Number of Fisher Scoring iterations: 4
+\end{verbatim}
+
+The summary shows a significant relationship (p value\textless0.05)
+between the presence of ``cct'' and the GC content.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pcctd }\OtherTok{=}\FunctionTok{ifelse}\NormalTok{(cctd}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{logitd }\OtherTok{=}\FunctionTok{glm}\NormalTok{(pcctd}\SpecialCharTok{\textasciitilde{}}\NormalTok{gcd,}\AttributeTok{family=}\NormalTok{binomial)}
+\FunctionTok{summary}\NormalTok{(logitd)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = pcctd ~ gcd, family = binomial)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.1187  -1.0985   0.6309   0.8017   1.3272  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(>|z|)   
+## (Intercept)   -6.076      2.488  -2.442  0.01459 * 
+## gcd           15.487      5.471   2.831  0.00465 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 123.01  on 106  degrees of freedom
+## Residual deviance: 113.71  on 105  degrees of freedom
+## AIC: 117.71
+## 
+## Number of Fisher Scoring iterations: 4
+\end{verbatim}
+
+The summary shows a significant relationship (p value\textless0.01)
+between the presence of ``cct'' and the GC content. Both viruses show
+significant relationship, but Dengue virus shows a stronger one. We
+expected a significant results for both genomes, as increasing the
+number of G and C, trinucleotides containing these bases will increase.
+This relationship could be seen in the plots above too.
+
+\hypertarget{what-is-the-probability-of-the-presence-of-cct-for-a-chunk-with-gc-content-of-0.50-in-zika-virus-what-is-this-probability-for-dengue-virus}{%
+\paragraph{5. What is the probability of the presence of ``cct'' for a
+chunk with GC content of 0.50 in Zika virus? What is this probability
+for Dengue
+virus?}\label{what-is-the-probability-of-the-presence-of-cct-for-a-chunk-with-gc-content-of-0.50-in-zika-virus-what-is-this-probability-for-dengue-virus}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob }\OtherTok{=} \FloatTok{0.5}
+\NormalTok{num }\OtherTok{=} \FunctionTok{exp}\NormalTok{(}\FunctionTok{coefficients}\NormalTok{(logitz)[}\DecValTok{1}\NormalTok{]}\SpecialCharTok{+}\FunctionTok{coefficients}\NormalTok{(logitz)[}\DecValTok{2}\NormalTok{]}\SpecialCharTok{*}\NormalTok{prob)}
+\NormalTok{probz }\OtherTok{=}\NormalTok{ num}\SpecialCharTok{/}\NormalTok{(}\DecValTok{1}\SpecialCharTok{+}\NormalTok{num)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{num }\OtherTok{=} \FunctionTok{exp}\NormalTok{(}\FunctionTok{coefficients}\NormalTok{(logitd)[}\DecValTok{1}\NormalTok{]}\SpecialCharTok{+}\FunctionTok{coefficients}\NormalTok{(logitd)[}\DecValTok{2}\NormalTok{]}\SpecialCharTok{*}\NormalTok{prob)}
+\NormalTok{probd }\OtherTok{=}\NormalTok{ num}\SpecialCharTok{/}\NormalTok{(}\DecValTok{1}\SpecialCharTok{+}\NormalTok{num)}
+\end{Highlighting}
+\end{Shaded}
+
+The probability of the presence of CCT for a chunk with GC content of
+0.50 in Zika virus is 0.7501601 and the probability for Dengue virus is
+0.8412984. The probability for Dengue virus is bigger, it could be
+related to the fact that the significance between GC content and
+presence of CCT is greater than in Zika.
+
+\end{document}
