@@ -24,7 +24,7 @@ library(cowplot)
 library(HMM)
 ```
 
-## 1. Download Zika virus (NC_012532.1) and Dengue virus (NC_001477).
+## 1. Download Zika virus (NC_012532) and Dengue virus (NC_001477).
 
 ```{r get-data}
 # ZIKA
@@ -55,7 +55,10 @@ matrix(c(.7,.3,.3,.7),2), matrix(c(.329,.301,.159,.211,
 
 hmm
 ```
-Plots for the changing points between AT and GC rich for both genomes are shown below.
+
+Plots for the changing points between AT and GC rich for both genomes
+are shown below.
+
 ```{r echo=FALSE}
 pathz=viterbi(hmm,zika)
 x=ifelse(pathz=="AT",1,0)
@@ -67,7 +70,6 @@ x=ifelse(pathd=="AT",1,0)
 plot(x, main='Dengue virus changing points between AT and GC rich', xlab='Sequence', yaxt='n', type = 'l', ylab = '')
 axis(2, at = 0:1, labels= c('GC','AT'))
 ```
-
 
 ```{r include=FALSE}
 counterz = 0
@@ -90,8 +92,8 @@ counterd
 ```
 
 Between both viruses, Dengue virus has more changing points
-(`r counterd`) from AT rich and GC rich, and conversely. Zika virus has
-`r counterz` changes.
+(**`r counterd`**) from AT rich and GC rich, and conversely. Zika virus
+has **`r counterz`** changes.
 
 ## 3. Calculate the GC content and the presence/absence of the trinucleotid "cct", of chunks with length 100 (for both viruses).
 
@@ -136,6 +138,7 @@ ylim = c(0.0,0.6))
 lines((cctd*5), xlab = "chunk", ylab= "CCT presence", col="#225560")
 legend(0.0, 0.3, legend=c("GC", "5x CCT"), col = c("#F46036","#225560"), lty = 1, cex= 0.8)
 ```
+
 ## 4. Is there any significant relationship between the presence of CCT and the GC content? Discuss and compare the results for both viruses.
 
 ```{r}
@@ -143,14 +146,22 @@ pcctz =ifelse(cctz>0,1,0)
 logitz =glm(pcctz~gcz,family=binomial)
 summary(logitz)
 ```
-The summary shows a significant relationship (p-value<0.05) between the presence of CC and the GC content.
+
+The summary shows a significant relationship (**p-value \< 0.05**)
+between the presence of CCT and the GC content.
+
 ```{r}
 pcctd =ifelse(cctd>0,1,0)
 logitd =glm(pcctd~gcd,family=binomial)
 summary(logitd)
 ```
-The summary shows a significant relationship (p-value<0.01) between the presence of CCT and the GC content.
-Both viruses show significant relationship, but Dengue virus shows a stronger one. We expected a significant results for both genomes, as increasing the number of G and C, trinucleotides containing these bases will increase. This relationship could be seen in the plots above too.
+
+The summary shows a significant relationship (**p-value \< 0.01**)
+between the presence of CCT and the GC content. Both viruses show
+significant relationship, but Dengue virus shows a stronger one. We
+expected a significant results for both genomes, as increasing the
+number of G and C, trinucleotides containing these bases will increase.
+This relationship could be seen in the plots above too.
 
 ## 5. What is the probability of the presence of "cct" for a chunk with GC content of 0.50 in Zika virus? What is this probability for Dengue virus?
 
@@ -164,10 +175,16 @@ probz = num/(1+num)
 num = exp(coefficients(logitd)[1]+coefficients(logitd)[2]*prob)
 probd = num/(1+num)
 ```
-The probability of the presence of CCT for a chunk with GC content of 0.50 in Zika virus is `r round(probz,3)` and the probability for Dengue virus is `r round(probd,3)`. The probability for Dengue virus is bigger, it could be related to the fact that the significance between GC content and presence of CCT is greater than in Zika.
+
+The probability of the presence of CCT for a chunk with GC content of
+0.50 in Zika virus is **`r round(probz,3)`** and the probability for
+Dengue virus is **`r round(probd,3)`**. The probability for Dengue virus
+is bigger, it could be related to the fact that the significance between
+GC content and presence of CCT is greater than in Zika.
 
 ## 6. Data availability
 
-All the code used to carry out this analysis and to generate the present file is available in the following link:
+All the code used to carry out this analysis and to generate the present
+file is available in the following link:
 
-- [assignment2.Rmd](https://github.com/navarrogarre/exercise2/blob/master/assignment2.Rmd)
+-   [assignment2.Rmd](https://github.com/navarrogarre/exercise2/blob/master/assignment2.Rmd)
