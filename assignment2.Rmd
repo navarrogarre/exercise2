@@ -4,11 +4,11 @@ subtitle: "Assignment 2"
 author: "José María González Romero and Emiliano Navarro Garre"
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
   html_document:
     css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css
     self_contained: yes
     theme: yeti
-  pdf_document: default
 editor_options:
   markdown:
     wrap: 72
@@ -24,7 +24,7 @@ library(cowplot)
 library(HMM)
 ```
 
-#### 1. Download Zika virus (NC_012532.1) and Dengue virus (NC_001477).
+## 1. Download Zika virus (NC_012532.1) and Dengue virus (NC_001477).
 
 ```{r get-data}
 # ZIKA
@@ -46,7 +46,7 @@ dengue <- read.fasta("input_data/dengue.fasta")
 dengue <- dengue[[1]]
 ```
 
-#### 2. Some genomes have long stretches of either GC-rich or AT-rich sequence. Use a HMM with two different states ("AT-rich" and "GC-rich") to infer which state of the HMM is most likely to have generated each nucleotide position in Zika and Dengue sequences. In this case we exactly know the underlying HMM model, that is, for the AT-rich state, pA= 0.329, pC = 0.301, pG = 0.159, and pT = 0.211; for the GC-rich state, pA = 0.181, pC = 0.313, pG = 0.307, and pT = 0.199. Moreover, the probability of switching from the AT-rich state to the GC-rich state, or conversely, is 0.3. Make a plot for each virus in order to see the change points. Which of both viruses has more change points?
+## 2. Some genomes have long stretches of either GC-rich or AT-rich sequence. Use a HMM with two different states ("AT-rich" and "GC-rich") to infer which state of the HMM is most likely to have generated each nucleotide position in Zika and Dengue sequences. In this case we exactly know the underlying HMM model, that is, for the AT-rich state, pA= 0.329, pC = 0.301, pG = 0.159, and pT = 0.211; for the GC-rich state, pA = 0.181, pC = 0.313, pG = 0.307, and pT = 0.199. Moreover, the probability of switching from the AT-rich state to the GC-rich state, or conversely, is 0.3. Make a plot for each virus in order to see the change points. Which of both viruses has more change points?
 
 ```{r}
 hmm=initHMM(c("AT","GC"), c("a","c","g","t"), c(0.5,0.5),
@@ -93,7 +93,7 @@ Between both viruses, Dengue virus has more changing points
 (`r counterd`) from AT rich and GC rich, and conversely. Zika virus has
 `r counterz` changes.
 
-#### 3. Calculate the GC content and the presence/absence of the trinucleotid "cct", of chunks with length 100 (for both viruses).
+## 3. Calculate the GC content and the presence/absence of the trinucleotid "cct", of chunks with length 100 (for both viruses).
 
 ```{r echo=FALSE}
 n = length(zika)
@@ -136,24 +136,23 @@ ylim = c(0.0,0.6))
 lines((cctd*5), xlab = "chunk", ylab= "CCT presence", col="#225560")
 legend(0.0, 0.3, legend=c("GC", "5x CCT"), col = c("#F46036","#225560"), lty = 1, cex= 0.8)
 ```
-
-#### 4. Is there any significant relationship between the presence of "cct" and the GC content? Discuss and compare the results for both viruses.
+## 4. Is there any significant relationship between the presence of CCT and the GC content? Discuss and compare the results for both viruses.
 
 ```{r}
 pcctz =ifelse(cctz>0,1,0)
 logitz =glm(pcctz~gcz,family=binomial)
 summary(logitz)
 ```
-The summary shows a significant relationship (p value<0.05) between the presence of "cct" and the GC content.
+The summary shows a significant relationship (p-value<0.05) between the presence of CC and the GC content.
 ```{r}
 pcctd =ifelse(cctd>0,1,0)
 logitd =glm(pcctd~gcd,family=binomial)
 summary(logitd)
 ```
-The summary shows a significant relationship (p value<0.01) between the presence of "cct" and the GC content.
+The summary shows a significant relationship (p-value<0.01) between the presence of CCT and the GC content.
 Both viruses show significant relationship, but Dengue virus shows a stronger one. We expected a significant results for both genomes, as increasing the number of G and C, trinucleotides containing these bases will increase. This relationship could be seen in the plots above too.
 
-#### 5. What is the probability of the presence of "cct" for a chunk with GC content of 0.50 in Zika virus? What is this probability for Dengue virus?
+## 5. What is the probability of the presence of "cct" for a chunk with GC content of 0.50 in Zika virus? What is this probability for Dengue virus?
 
 ```{r echo=TRUE}
 prob = 0.5
@@ -166,3 +165,9 @@ num = exp(coefficients(logitd)[1]+coefficients(logitd)[2]*prob)
 probd = num/(1+num)
 ```
 The probability of the presence of CCT for a chunk with GC content of 0.50 in Zika virus is `r round(probz,3)` and the probability for Dengue virus is `r round(probd,3)`. The probability for Dengue virus is bigger, it could be related to the fact that the significance between GC content and presence of CCT is greater than in Zika.
+
+## 6. Data availability
+
+All the code used to carry out this analysis and to generate the present file is available in the following link:
+
+- [assignment2.Rmd](https://github.com/navarrogarre/exercise2/blob/master/assignment2.Rmd)
